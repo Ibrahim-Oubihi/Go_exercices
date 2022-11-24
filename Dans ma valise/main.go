@@ -5,25 +5,38 @@ import (
 )
 
 func main() {
-	phrase := "Dans ma valise, il y a…"
-	mot := []string{}
+	sentence := "Dans ma valise, il y a …"
+	word := []string{}
 	temp := ""
 
 	for temp != "fin" {
-		fmt.Printf("\nEntrez un mot :")
+		fmt.Printf("\nEntrez un mot : ")
 		fmt.Scan(&temp)
-		mot = append(mot, temp)
-		fmt.Printf(phrase)
-		showPhrase(mot)
-		if showPhrase(mot []string) < 4{
-			
-		} 
-	}
 
+		if temp != "fin" {
+			word = append(word, temp)
+			fmt.Printf(sentence)
+			showWords(word)
+		}
+	}
 }
 
-func showPhrase(mot []string) {
-	for i := 0; i < len(mot); i++ {
-		fmt.Printf(" %s ", mot[i])
+func showWords(word []string) {
+	for i := 0; i < len(word); i++ {
+
+		fmt.Printf(" %s", word[i])
+
+		if i < len(word)-2 {
+			fmt.Printf(",")
+		}
+
+		if i == len(word)-2 {
+			fmt.Printf(" et")
+		}
+
+		if i == len(word)-1 {
+			fmt.Printf(".")
+		}
+
 	}
 }
